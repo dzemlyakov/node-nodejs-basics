@@ -15,9 +15,8 @@ export const copy = async () => {
 
   if (!folderExists) {
     try {
-        let arr = await fs.promises.readdir(srcPath);
-        await fs.promises.mkdir(destPath);
-      
+      let arr = await fs.promises.readdir(srcPath);
+      await fs.promises.mkdir(destPath);
 
       await Promise.all(
         arr.map(async (file) => {
@@ -25,8 +24,8 @@ export const copy = async () => {
         })
       );
     } catch (err) {
-        console.log("FS operation failed");
-        throw new Error(err);
+      console.log("FS operation failed");
+      throw new Error(err);
     }
   } else {
     throw new Error("FS operation failed: this folder already existed");
