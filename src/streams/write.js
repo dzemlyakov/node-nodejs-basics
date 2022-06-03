@@ -16,7 +16,8 @@ export const write = async () => {
 
   readStreamFromTerminal.on("data", (data) => {
     if (data.toString().match("exit")) {
-      readStreamFromTerminal.unpipe(writeStream);
+        writeStream.end()
+        readStreamFromTerminal.unpipe(writeStream);
     }
   });
 };
