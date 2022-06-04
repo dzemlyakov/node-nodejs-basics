@@ -4,7 +4,7 @@ import path, { dirname } from "path";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-const dirPath = path.join(__dirname, "/files/");
+const dirPath = path.join(__dirname, "files/");
 
 let fileName = "fileToRead.txt";
 
@@ -15,5 +15,6 @@ export const read = async () => {
   readStream.pipe(writeToTerminal);
 
   readStream.on("data", () => {});
+  readStream.on("error", (err) => {console.error(err.message)});
 };
 read();

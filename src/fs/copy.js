@@ -5,8 +5,8 @@ import path, { dirname } from "path";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-const srcPath = path.join(__dirname, "/files/");
-const destPath = path.join(__dirname, "/files_copy/");
+const srcPath = path.join(__dirname, "files/");
+const destPath = path.join(__dirname, "files_copy/");
 
 export const copy = async () => {
   const folderExists = await fs.promises.access(destPath)

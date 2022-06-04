@@ -5,15 +5,15 @@ import path, { dirname } from "path";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-const dirPath = path.join(__dirname, "/files");
+const dirPath = path.join(__dirname, "files/");
 
 export const list = async () => {
   try {
     let filenames = await fs.promises.readdir(dirPath)
-      console.log(filenames)
+      return filenames
   } catch (err) {
     console.log("FS operation failed");
     throw new Error(err);
   }
 };
-list();
+console.log(await list());
