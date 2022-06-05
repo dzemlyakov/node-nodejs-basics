@@ -4,24 +4,22 @@
   "description": "This repository is the part of nodejs-assignments https://github.com/AlreadyBored/nodejs-assignments",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "fs-read": "node src/fs/read.js",
-    "fs-write": "node src/fs/write.js",
+    "fs-write": "node src/fs/create.js",
     "fs-delete": "node src/fs/delete.js",
     "fs-list": "node src/fs/list.js",
     "fs-rename": "node src/fs/rename.js",
     "fs-copy": "node src/fs/copy.js",
-    "cli-env": "RSS_name1=foo RSS_name2=bar node src/cli/env",
-    "cli-args": "node src/cli/env --value 1 --value 4",
+    "cli-argv": "node src/cli/args.js --value 1 --value 4",
     "hash": "node src/hash/calcHash.js",
     "modules": "node src/modules/index.js",
     "r-stream": "node src/streams/read.js",
     "w-stream": "node src/streams/write.js",
     "t-stream": "node src/streams/transform.js",
-    "compress": "node src/zip/compres.js",
-    "decompress":"node src/zip/decompres.js",
+    "compress": "node src/zip/compress.js",
+    "decompress":"node src/zip/decompress.js",
     "worker": "node src/wt/main.js",
-    "cp": "node src/cp/cp.js"
+    "cp": "node src/cp/cp.js --value --flag"
     
 
   },
