@@ -1,13 +1,17 @@
 import { Worker } from "worker_threads";
 import os from "os";
+import { fileURLToPath } from "url";
+import path, { dirname } from "path";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const dirPath = path.join(__dirname, "worker.js");
 
 const CPUcores = os.cpus().length;
 
 const createWorker = (workerData) => {
-  const promise = new Promise((resolve) => {
-    const worker = new Worker("./src/wt/worker.js", {
-      workerData,
-    });
+    return new Promise((resolve, reject) => {
+    const worker = new Worker(dirPath, { workerData });
     worker
       .on("message", (data) => {
         resolve({
@@ -20,11 +24,13 @@ const createWorker = (workerData) => {
           status: "error",
           data: data,
         });
-      });
+      }).on("exit", (code) => {
+        if (code !== 0){
+            reject(new Error(`Worker stoped with exit code: ${code}`))
+        }
+      })
   });
-  return promise.then(data => data)
 };
-
 
 export const performCalculations = async () => {
   let workers = [];
