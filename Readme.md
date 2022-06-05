@@ -18,9 +18,9 @@ To check the tasks open terminal(your curent work directory should be:***User/..
 ## CLI
 
 - env: 
-*for bash and zsh*   
+- *for bash and zsh*   
 `RSS_name1=foo RSS_name2=bar node src/cli/env.js`
-*for windows powershell*
+- *for windows powershell*
 `"set RSS_name1=foo&& set RSS_name2=foo node src/cli/env.js`
 
 - argv: `npm run cli-argv`
