@@ -22,7 +22,7 @@ const createWorker = (workerData) => {
       .on("error", (data) => {
         resolve({
           status: "error",
-          data: data,
+          data: null,
         });
       }).on("exit", (code) => {
         if (code !== 0){
