@@ -34,7 +34,7 @@ const createWorker = (workerData) => {
 
 export const performCalculations = async () => {
   let workers = [];
-  for (let i = 1; i < CPUcores; i++) {
+  for (let i = 1; i <= CPUcores; i++) {
     workers.push(createWorker(9 + i));
   }
 
